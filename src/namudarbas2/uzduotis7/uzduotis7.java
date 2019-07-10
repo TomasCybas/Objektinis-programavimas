@@ -17,8 +17,6 @@ public class uzduotis7 {
             cycleYear = Math.abs(year-beginningYear + 60) % 60;
         }
         int yearColorNo = cycleYear % 10;
-        System.out.println(yearColorNo);
-        System.out.println(cycleYear);
 
         switch (yearColorNo) {
             case 1:
