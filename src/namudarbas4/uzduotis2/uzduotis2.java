@@ -17,7 +17,6 @@ public class uzduotis2 {
         System.out.println("Įveskite antrą datą: yyyy-mm-dd ");
         LocalDate secondDate = LocalDate.parse(sc.nextLine());
         sc.close();
-
         System.out.println(betweenDates(firstDate, secondDate));
     }
 }
