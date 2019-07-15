@@ -1,0 +1,10 @@
+Sandėlių kiekis: 3
+pirmo kroviniai: 2
+pirmao destination: 3
+pirmo svoris: 5
+antro dest: 2
+antro svoris: 4
+antro kroviniai: 1
+pirmo dest: 3
+pirmo svoris: 7
+trecio kroviniai: 0
