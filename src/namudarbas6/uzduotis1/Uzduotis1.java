@@ -1,4 +1,4 @@
-package uzduotis1;
+package namudarbas6.uzduotis1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Uzduotis1 {
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner sc = new Scanner(new File("namudarbas6\\data\\uzduotis1.txt"));
+        Scanner sc = new Scanner(new File("data\\uzduotis1\\uzduotis1.txt"));
         int weeks = sc.nextInt();
         int[][] temperatures = new int[weeks][7];
         for (int i = 0; i < weeks; i++) {
