@@ -12,8 +12,12 @@ public class uzduotis1 {
         while (filesc.hasNext()){
             String name = "data/namudarbas7/" + filesc.next() + ".txt";
             Scanner sc = new Scanner(new File(name));
-            System.out.println(sc.next());
+            for (int i = 0; i < 3; i++){
+                String tmp = sc.nextLine();
+            }
+            salary += sc.nextInt();
         }
+        System.out.println(salary);
     }
 
 
@@ -32,13 +36,19 @@ public class uzduotis1 {
         } else {
           /*  System.out.println(getSalaries("data/namudarbas7/sarasas.txt"));*/
             System.out.println("Darbas baigtas");
+            getSalaries("data/namudarbas7/sarasas.txt");
+            System.exit(1);
         }
     }
 
     public static void main(String[] args) throws FileNotFoundException {
 
         printFileData();
-        getSalaries("data/namudarbas7/sarasas.txt");
     }
 
 }
+//todo: try catch exceptions>:
+// file not found
+// input mismatch
+// list has non existant name;
+// unexpected exceptions
