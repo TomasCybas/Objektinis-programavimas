@@ -6,24 +6,21 @@ import java.util.Scanner;
 
 public class Papildoma {
     public static void main(String[] args) throws FileNotFoundException {
-            //Scanner sc = new Scanner(new File("data.txt"));
-            Scanner sc = new Scanner(System.in);
+            Scanner sc = new Scanner(new File("data/namudarbas5/data.txt"));
 
-            System.out.println("Iveskite sandeliu kieki: ");
             int n = sc.nextInt();
             int[] warehouses = new int[n];
             int maxLoad = 0;
             for (int i = 0; i < warehouses.length; i++) {
                 // ivedamas kroviniu kiekis iš sandelio:
-                System.out.println("iveskite kroviniu kieki isvezama is " + (i+1) + "-ojo sandėlio");
                 int loads = sc.nextInt();
                 for (int j = 1; j <= loads; j++) {
-                    System.out.println("iveskite i kuri sandeli vezamas" + j +  "-asis krovinys: ");
+                    //ivedamas destination
                     int destination = sc.nextInt();
-                    System.out.println("Iveskite" + j + "-ojo krovinio svori: ");
+                    //ivedamas svoris
                     int weight = sc.nextInt();
-                    if ((i + 1) < destination) {
                         maxLoad += weight;
+                        if ((i + 1) < destination) {
                     } else {
                         maxLoad -= weight;
                     }
