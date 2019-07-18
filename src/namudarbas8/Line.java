@@ -11,13 +11,10 @@ public class Line {
 
     /**
      * Calculates line length between two given Points
+     *
      * @return double
      */
-    public double getLineLength(){
-        double x1  = this.p1.getX();
-        double x2 = this.p2.getX();
-        double y1 = this.p1.getY();
-        double y2 = this.p2.getY();
-        return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+    public double getLineLength() {
+        return this.p1.distance(this.p2);
     }
 }
