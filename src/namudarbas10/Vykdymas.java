@@ -58,7 +58,6 @@ public class Vykdymas {
         mainPanel.add(sodraLabel);
         sodraOutput = new JLabel("0.00 EUR", SwingConstants.RIGHT);
         mainPanel.add(sodraOutput);
-
         JLabel totalEmploymentCostLabel = new JLabel("Visa darbo vietos kaina");
         mainPanel.add(totalEmploymentCostLabel);
         totalEmploymentCostOutput = new JLabel("0.00 EUR", SwingConstants.RIGHT);
@@ -66,14 +65,10 @@ public class Vykdymas {
         JButton button1 = new JButton("Skaičiuoti");
         button1.addActionListener(new Calculate(salaryInput, NPDInput));
         mainPanel.add(button1);
-
         //End Components
 
         f.setSize(800,600);
         f.setVisible(true);
-
-
-
 
     }
 }
