@@ -1,20 +1,21 @@
 package namudarbas9.Uzduotis1;
 
-import namudarbas9.Uzduotis1.StaffMember;
+import java.util.Arrays;
 
 public class Staff {
      StaffMember[] staffList;
 
 
-    public Staff(int i) {
-        this.staffList = new StaffMember[i];
+
+    public Staff() {
+        this.staffList = new StaffMember[0];
     }
 
 
-    int j = 0;
-    public void addStaffMember(StaffMember staff){
-        this.staffList[j] = staff;
-        j++;
+
+        public void addStaffMember(StaffMember staff){
+        this.staffList = Arrays.copyOf(staffList, this.staffList.length + 1);
+        this.staffList[this.staffList.length - 1] = staff;
     }
 
     public double payDay(){

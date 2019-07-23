@@ -3,7 +3,7 @@ package namudarbas9.Uzduotis1;
 public class Firm {
     public static void main(String[] args) {
 
-        Staff personnel = new Staff(6);
+        Staff personnel = new Staff();
         Employee jonaitis = new Employee("Jonas", "Jonaitis", "123", "4568", 200);
         Employee petraitis = new Employee("Petras", "Petraitis", "123", "8745", 300);
         Trainee pavardenis = new Trainee("Vardenis", "Pavardenis", "321");
