@@ -1,8 +1,9 @@
 package namudarbas12.uzduotis;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Recipes {
+public class Recipes implements Serializable {
     public Dish [] recipes;
 
     public Recipes() {

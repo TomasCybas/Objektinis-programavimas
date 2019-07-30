@@ -5,42 +5,28 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class DishTable extends JTable {
-    public Object[][] rowData = {};
-    public Object[] columnNames = {};
 
-    public DishTable(TableModel dm, Object[][] rowData, Object[] columnNames) {
+
+    public DishTable(TableModel dm ) {
         super(dm);
-        this.rowData = rowData;
     }
 
-    public DishTable() {
-
-    }
 
     public static JTable getTable(Recipes recipeBook) {
-        Object[] columnNames = new Object[]{};
-        Object[][] rowData = new Object[0][0];
-        DefaultTableModel dishTableModel = new DefaultTableModel(rowData, columnNames);
+        DefaultTableModel dishTableModel = new DefaultTableModel();
         dishTableModel.addColumn("Patiekalai");
         for (int i = 0; i < recipeBook.recipes.length; i++) {
             String rowString = recipeBook.recipes[i].name;
             dishTableModel.addRow(new Object[]{rowString});
         }
 
-        return new DishTable(dishTableModel, rowData, columnNames);
+        return new DishTable(dishTableModel);
 
     }
 
 
-    public static JTable getProductsTable(Recipes recipeBook, int dishIndex) {
-        Object[] columnNames = new Object[]{};
-        Object[][] rowData = new Object[0][0];
-        DefaultTableModel productTableModel = new DefaultTableModel(rowData, columnNames);
-        productTableModel.addColumn("Produktas");
-        productTableModel.addColumn("Riebalai");
-        productTableModel.addColumn("Baltymai");
-        productTableModel.addColumn("Angliavandeniai");
-        productTableModel.addColumn("Kiekis");
+    public static void setProductsTable(JTable table, Recipes recipeBook, int dishIndex) {
+        DefaultTableModel productTableModel = (DefaultTableModel) table.getModel();
         for (int i = 0; i < recipeBook.recipes[dishIndex].products.length; i++) {
             String[] data = new String[5];
             data[0] = recipeBook.recipes[dishIndex].products[i].name;
@@ -51,7 +37,8 @@ public class DishTable extends JTable {
 
             productTableModel.addRow(data);
         }
-        return new DishTable(productTableModel, rowData, columnNames);
+        table.setModel(productTableModel);
+    }
 
     }
 
@@ -59,4 +46,4 @@ public class DishTable extends JTable {
 
 
 
-}
+
