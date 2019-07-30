@@ -3,6 +3,10 @@ package namudarbas12.uzduotis;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Arrays;
 
 public class Execute {
@@ -17,10 +21,15 @@ public class Execute {
      pizza.addProduct("kazkas", 25, 13, 31, 3);
      pizza.addProduct("Kazkas Kitas", 58, 99, 12, 3);
      pizza.addProduct("belekas", 14, 454, 12, 3);
-     System.out.println(Arrays.toString(pizza.products));
+     Dish test = new Dish("testas");
+     test.addProduct("kazkas", 11, 15, 132 ,123 );
+     test.addProduct("kazkas kitas", 11, 15, 132 ,123 );
+     test.addProduct("kazkas dar kitas", 11, 15, 132 ,123 );
+     test.addProduct("ir dar kazkas", 11, 15, 132 ,123 );
+
      Recipes recipeBook = new Recipes();
      recipeBook.addRecipe(pizza);
-     System.out.println(recipeBook.toString());
+     recipeBook.addRecipe(test);
 
 
 
@@ -31,18 +40,25 @@ public class Execute {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel main = new JPanel(new GridLayout(2, 1));
         frame.add(main);
-        /*DefaultTableModel testmodel = new DefaultTableModel();
-        testmodel.addColumn("testas");
-        testmodel.addColumn("testas2");
-        testmodel.addRow(new Object[]{"testas22222"});
-        JTable test = new JTable(testmodel);
-        JScrollPane test1 = new JScrollPane(test);
-        main.add(test1);*/
 
-
-        JTable table = DishTable.getTable(recipeBook);
-        JScrollPane scroll = new JScrollPane(table);
+        JTable dishesTable = DishTable.getTable(recipeBook);
+        JScrollPane scroll = new JScrollPane(dishesTable);
         main.add(scroll);
+        dishesTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int selected = dishesTable.getSelectedRow();
+                System.out.println(selected);
+                JTable productsTable = DishTable.getProductsTable(recipeBook, selected);
+                JScrollPane scroll2 = new JScrollPane(productsTable);
+                main.remove(scroll2);
+                main.add(scroll2);
+                main.remove(productsTable);
+                main.add(productsTable);
+            }
+
+
+        });
         
 
         frame.setSize(700, 600);

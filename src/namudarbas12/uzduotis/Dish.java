@@ -25,13 +25,8 @@ public class Dish {
 
         @Override
         public String toString() {
-            return "Product{" +
-                    "name='" + name + '\'' +
-                    ", fats=" + fats +
-                    ", proteins=" + proteins +
-                    ", carbs=" + carbs +
-                    ", amount=" + amount +
-                    '}';
+            return
+                    name +  ", " + fats + ", " +  proteins+ ", " + carbs + ", " + amount;
         }
     }
 
