@@ -51,11 +51,12 @@ public class Stack <T> {
                 tmp = tmp.next;
             }
             Item<T> newItem = new Item<>(data);
-            Item<T> tmp2 = tmp.next;
+
+            newItem.next = tmp.next;
             tmp.next = newItem;
-            newItem.next = tmp2;
+
         }
-     ;
+
 
     }
 }
