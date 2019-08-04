@@ -13,9 +13,12 @@ public class Execute {
 
         t.print();
         System.out.println();
-        t.remove(31);
+        t.remove(54);
 
         t.print();
         System.out.println();
+        t.total();
     }
+
+
 }

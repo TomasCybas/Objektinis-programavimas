@@ -4,26 +4,26 @@ public class Tree {
     Item root = null;
 
 
-    public Item add(Integer data, Item root){
-       if (root == null){
-           return new Item(data);
-       }
-       if (root.data > data){
-           root.left = add(data, root.left);
-       }else {
-           root.right = add(data, root.right);
-       }
-       return root;
+    public Item add(Integer data, Item root) {
+        if (root == null) {
+            return new Item(data);
+        }
+        if (root.data > data) {
+            root.left = add(data, root.left);
+        } else {
+            root.right = add(data, root.right);
+        }
+        return root;
     }
 
-    public void add (Integer data){
+    public void add(Integer data) {
         this.root = this.add(data, this.root);
     }
 
     public void print(Item root) {
-        if (root!=null) {
+        if (root != null) {
             print(root.right);
-            System.out.print(root.data+" ");
+            System.out.print(root.data + " ");
             print(root.left);
         }
     }
@@ -32,31 +32,32 @@ public class Tree {
         this.print(root);
     }
 
-    public Item remove (Integer value, Item root) {
-        if (root == null) return null;
-        if (value < root.data){
+    public Item remove(Integer value, Item root) {
+        if (value < root.data) {
             root.left = remove(value, root.left);
-        }else {
-            if(value > root.data){
+        } else {
+            if (value > root.data) {
                 root.right = remove(value, root.right);
             } else {
-                if (root.left == null){
+                if (root.left == null) {
                     return root.right;
-                }else {
-                    if(root.right == null){
+                } else {
+                    if (root.right == null) {
                         return root.left;
+                    }else {
+                        root.data = getMinValue(root.right);
+                        root.right = remove(root.data, root.right);
                     }
                 }
             }
-            root.data = getMinValue(root.right);
-            root.right = remove(root.data, root.right);
         }
         return root;
     }
 
-    public int getMinValue (Item root){
+
+    public int getMinValue(Item root) {
         int minValue = root.data;
-        while (root.left != null ){
+        while (root.left != null) {
             minValue = root.left.data;
             root = root.left;
         }
@@ -65,10 +66,25 @@ public class Tree {
     }
 
 
-    public void remove (Integer value){
+    public void remove(Integer value) {
         root = remove(value, root);
-        }
-
     }
+
+    private int add (Item root) {
+        if (root == null) {
+            return 0;
+        }else {
+            return  root.count + add(root.left) + add(root.right);
+        }
+    }
+
+    public void total () {
+        System.out.println("Medyje yra " + this.add(root) + " elementai");
+    }
+
+
+
+
+}
 
 
