@@ -36,7 +36,6 @@ public class Execute {
         frame.setVisible(true);
         //UI Ends
 
-
         Map<Contact, LinkedList<String>> contactListMap = new HashMap<>();
 
 
@@ -56,14 +55,12 @@ public class Execute {
                 }
             }
         });
-
         contactList.addActionListener(e->{
             JComboBox cb = (JComboBox)e.getSource();
             Contact contact = (Contact)cb.getSelectedItem();
             phoneNumberOutput.setText(contact + " telefono numeriai: " + contactListMap.get(contact).toString());
             System.out.println(contactListMap.get(contact));
         });
-
         }
     }
 
